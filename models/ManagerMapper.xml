@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ManagerMapper">  
+  
+  <select id="selectManagerDpliCheck">
+      SELECT 
+        count(*) as num
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+  </select>
+
+  <select id="selectManagerLoginCheck">
+      SELECT 
+      username
+      , userorg
+      , useremail
+      , userpassword
+      , usermajor
+      , userphone
+      , userflag
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+  </select>
+
+  <select id="selectSessionManagerLoginCheck">
+      SELECT 
+      username
+      , userorg
+      , useremail
+      , userpassword
+      , usermajor
+      , userphone
+      , userflag
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+      AND userpassword = #{is_Token}
+  </select>
+
+  <select id="selectManagerLoginResetCheck">
+      SELECT 
+      userpassword
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+      AND username = #{is_Name}
+  </select>
+
+  <select id="selectEmailManagerTokenCheck">
+      SELECT 
+      username
+      , userorg
+      , useremail
+      , userpassword
+      , usermajor
+      , userphone
+      , userflag
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+      AND userpassword like CONCAT('%', #{is_Token}, '%')
+  </select>
+
+</mapper>

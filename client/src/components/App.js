@@ -3,24 +3,21 @@ import { Route } from "react-router-dom";
 import cookie from 'react-cookies';
 import axios from "axios";
 
-
 // css
-import '../css/new.css';
+import './css/new.css';
+
 // header
 import HeaderAdmin from './Header/Header admin';
+
 // footer
 import Footer from './Footer/Footer';
-// Login
+
+// login
 import LoginForm from './LoginForm';
-// ReactProxy
-import ReactProxy from './ReactProxy';
-// ApiPostJson
-import ApiPostJson from './ApiPostJson';
-// SoftwareList
+
 import SoftwareList from './SoftwareToolsManage/SoftwareList';
-// SoftwareView
 import SoftwareView from './SoftwareToolsManage/SoftwareView';
-// Register
+
 import Register from './Register/Register';
 
 class App extends Component {
