@@ -66,10 +66,8 @@ class LoginForm extends Component {
     render () {
         return (
             <section className="main">
-                <div className='main-bg'>
-                <span><img src={require("./img/main/main-bg.png")} alt="" /></span>
-                </div>
                 <div className="m_login">
+                <span><img src={require("./img/main/main-bg.png")} alt="" height={300} /></span>
                 <h3><span><img src={require("./img/main/log_img.png")} alt="" />
                 </span>LOGIN</h3>
                 <div className="log_box">

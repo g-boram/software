@@ -77,10 +77,10 @@ body{min-width:1280px; }
 
 /*header*/
 .gnb_box{}
-.gnb_box .hd_top{background: #25b156; color: #fff;}
+.gnb_box .hd_top{background: #116bea; color: #fff;}
 .hd_top .top_wrap{}
 .hd_left{float: left; position: relative;}
-.hd_left > li{float: left;  font-size: 15px; line-height: 45px; background: #8e6826; text-align: center; font-weight: 400;; padding: 0 7px 0 30px; cursor: pointer;}
+.hd_left > li{float: left;  font-size: 15px; line-height: 45px; background: #116bea; text-align: center; font-weight: 400;; padding: 0 7px 0 30px; cursor: pointer;}
 .hd_left > li b{font-weight: 400; transition:.3s;}
 .hd_left > li:before{display: inline-block; content:''; width: 14px; height: 45px; background: url(../img/layout/htop_icon1.png) center no-repeat; vertical-align: top; margin-right: 11px; transition:.3s;}
 .hd_left > li.my2{width: 87px; text-align: left;}
@@ -135,6 +135,7 @@ body{min-width:1280px; }
 .in_ty1 span.ic_2 img{padding-top: 26px;}
 .in_ty1 input{height: 55px; line-height: 55px; border: 0 !important; font-size: 16px; color: #9a9a9a; width: 355px; outline:none; padding-left: 18px;}
 .in_ty1 input::placeholder {color: #9a9a9a; font-size: 16px; line-height: 55px; }
+
 
 .m_login ul{overflow: hidden; clear: both; margin-top: 20px; margin-bottom: 32px;}
 .m_login ul li{float: left;}

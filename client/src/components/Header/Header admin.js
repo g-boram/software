@@ -90,7 +90,7 @@ class Header extends Component {
                             </ul>
                         </div>
                         </li>
-                    <li className="my2"><b><span>0</span>알림</b>
+                    <li className="my2"><b><span>0</span></b>
                     </li>
                 </ul>
                 <div className="hd_right">
@@ -105,16 +105,16 @@ class Header extends Component {
                     <nav className="gnb gnb_admin">
                     <ul className="af">
                         <li className="menulist">
-                            <Link to={'/UserApproval'}>사용자 관리</Link>
+                            <Link to={'/CompanyInfo'}>Info</Link>
                         </li>
                         <li className="menulist">
-                            <Link to={'/AdminResearchProject'}>Research Projects 관리</Link>
+                            <Link to={'/Project'}>Projects</Link>
                         </li>
                         <li className="menulist">
-                            <Link to={'/SoftwareList'}>Software Tools 관리</Link>
+                            <Link to={'/SoftwareList'}>Management</Link>
                         </li>
                         <li className="menulist">
-                            <Link to={'/AdminDataSourceList'}>Data Sources 관리</Link>
+                            <Link to={'/DataList'}>DataList 관리</Link>
                         </li>
                         {/* 드롭다운 이벤트 */}
                         <li  className="menulist"><Link to={'/floatPopulationList'}>유동인구 조회</Link>
