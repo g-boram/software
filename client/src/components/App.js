@@ -2,26 +2,32 @@ import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import cookie from 'react-cookies';
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // css
-import '../css/new.css';
+import './css/new.css';
 // header
 import HeaderAdmin from './Header/Header admin';
 // footer
 import Footer from './Footer/Footer';
-// Login
+// login
 import LoginForm from './LoginForm';
-// ReactProxy
-import ReactProxy from './ReactProxy';
-// ApiPostJson
-import ApiPostJson from './ApiPostJson';
 // SoftwareList
 import SoftwareList from './SoftwareToolsManage/SoftwareList';
 // SoftwareView
 import SoftwareView from './SoftwareToolsManage/SoftwareView';
+// Software
+import Software from './SoftwareToolsManage/Software';
 // Register
 import Register from './Register/Register';
+// CompanyInfo
+import CompanyInfo from './CompanyInfo/CompanyInfo';
+// Project
+import Project from './Project/Project';
+// DataList
+import DataList from './DataList/DataList';
+
 
 class App extends Component {
   constructor(props) {
@@ -79,7 +85,11 @@ class App extends Component {
         <Route path='/login' component={LoginForm} />
         <Route path='/SoftwareList' component={SoftwareList} />
         <Route path='/SoftwareView/:swtcode' component={SoftwareView} />
+        <Route path='/Software/:swtcode' component={Software} />
         <Route path='/register' component={Register} />
+        <Route path='/CompanyInfo' component={CompanyInfo} />
+        <Route path='/Project' component={Project} />
+        <Route path='/DataList' component={DataList} />
         <Footer/>
       </div>
     );

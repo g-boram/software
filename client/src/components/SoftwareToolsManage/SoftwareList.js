@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import "bootstrap";
+
 
 class SoftwareList extends Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class SoftwareList extends Component {
         this.state = {
             responseSwtoolList: '',
             append_SwtoolList: '',
+            append_SoftCard: '',
         }
     }
 
@@ -24,12 +27,46 @@ class SoftwareList extends Component {
             try {
                 this.setState({ responseSwtoolList: response });
                 this.setState({ append_SwtoolList: this.SwToolListAppend() });
+                this.setState({ append_SoftCard: this.SoftCard() });
             } catch (error) {
                 alert('작업중 오류가 발생하였습니다.');
             }
         })
         .catch( error => {alert('작업중 오류가 발생하였습니다.');return false;} );
     }
+    //test
+    SoftCard = () => {
+        let result = []
+        var SwToolList = this.state.responseSwtoolList.data
+        
+        
+        for(let i=0; i<3; i++){
+            var data = SwToolList.json[i]
+
+            var date = data.reg_date
+            var year = date.substr(0,4)
+            var month = date.substr(4,2)
+            var day = date.substr(6,2)
+            var reg_date = year +'.'+month+'.'+day
+
+            result.push(
+                <div class="card" style={{width: "30rem",height:700, margin:3}}>
+                    <img class="card-img-top" id="uploadimg2" 
+                        src={data.swt_big_imgpath}
+                        style={{height:400}}
+                    />
+                    <div class="card-body" style={{ margin:5,fontSize:22}}>{data.swt_toolname}
+                    <p class='card-text'>{data.swt_function}</p>
+                    <p class='card-text' style={{ height:120}}>{data.swt_comments}</p>
+                    <p class='card-text' style={{ textAlign:"end"}}>{reg_date}</p>
+                    </div>
+                    
+                </div>
+            )
+        }
+        return result
+    }
+
 
     SwToolListAppend = () => {
         let result = []
@@ -47,7 +84,7 @@ class SoftwareList extends Component {
             result.push(
                 <tr class="hidden_type">
                     <td>{data.swt_toolname}</td>
-                    <td>{data.swt_function}</td>
+                    <td><Link to={'/Software/'+data.swt_code}>{data.swt_function}</Link></td>
                     <td>{reg_date}</td>
                     <td>
                         <Link to={'/SoftwareView/'+data.swt_code} 
@@ -82,28 +119,34 @@ class SoftwareList extends Component {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes'
-          }).then((result) => {
+        }).then((result) => {
             if (result.value) {
-              Swal.fire(
+            Swal.fire(
                 'Deleted!',
                 '삭제되었습니다.',
                 'success'
-              )
+            )
             }else{
                 return false;
             }
             callbackFunc()
-          })
+        })
     }
 
     render () {
+        
         return (
+            <>
             <section class="sub_wrap" >
                 <article class="s_cnt mp_pro_li ct1 mp_pro_li_admin">
                     <div class="li_top">
-                        <h2 class="s_tit1">Software Tools 목록</h2>
+                        <h2 class="s_tit1">Management 목록</h2>
+                        <div style={{height:800, display:"flex"}}>
+                        {this.state.append_SoftCard}
+                        </div>
                         <div class="li_top_sch af">
-                        <Link to={'/SoftwareView/register'} className="sch_bt2 wi_au">Tool 등록</Link>
+                            <h2 class="s_tit1">공지사항</h2>
+                        <Link to={'/SoftwareView/register'} className="sch_bt2 wi_au">등록</Link>
                         </div>
                     </div>
 
@@ -121,7 +164,37 @@ class SoftwareList extends Component {
                         </table>
                     </div>
                 </article>
+            <div style={{height:100}}/>
+            <div className='ct1 af'>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src={require("../img/main/info-bg2.jpg")} class="d-block w-100" alt="..." height={500}/>
+                    </div>
+                    <div class="carousel-item">
+                    <img src={require("../img/main/info-bg3.jpg")} class="d-block w-100" alt="..." height={500}/>
+                    </div>
+                    <div class="carousel-item">
+                    <img src={require("../img/main/info-bg1.jpg")} class="d-block w-100" alt="..." height={500}/>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
             </section>
+            </>
         );
     }
 }

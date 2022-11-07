@@ -5,12 +5,18 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "node server.js"
   },
   "dependencies": {
+    "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.2",
+    "concurrently": "^7.3.0",
     "cookie-parser": "~1.4.4",
+    "css-loader": "^6.7.1",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "fs": "^0.0.1-security",
@@ -24,6 +30,25 @@
     "mysql": "^2.18.1",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.7.8",
-    "react-cookies": "^0.1.1"
-  }
+    "react-bootstrap": "^2.5.0",
+    "react-cookies": "^0.1.1",
+    "react-icons": "^4.4.0",
+    "react-kakao-maps-sdk": "^1.1.5",
+    "react-slick": "^0.29.0",
+    "recharts": "^2.1.16",
+    "webpack": "4.42.0",
+    "yarn": "^1.22.19"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-boram/react-web-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-boram/react-web-project/issues"
+  },
+  "homepage": "https://github.com/g-boram/react-web-project#readme",
+  "description": ""
 }
